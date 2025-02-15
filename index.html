@@ -1,1 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="index.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <title>Virtual Valentine's Day Card</title>
+    </head>
+    <body>
+        <div class="envelope-wrapper">
+            <div id="envelope" class="close">
+                <div class="front flap"></div>
+                <div class="front pocket"></div>
+                <div class="letter">
+                    <p class="words line1">Dear Keng,<span class="heart-icon">❤️</span></p>
+                    
+                    <p class="words line3">Happy Valentine's Day</p>
+                </div>
+                <div class="hearts">
+                    <div class="heart a1"></div>
+                    <div class="heart a2"></div>
+                    <div class="heart a3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="reset">
+            <button id="open">Open</button>
+            <button id="reset">Reset</button>
 
+
+
+
+<!-- เปิดดอกไม้ -->
+<button id="openim">Flower</button>
+
+<!-- Popup Modal -->
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <video id="videoPlayer" controls>
+            <source src="images/F2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+<!-- CSS -->
+<style>
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .modal-content {
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        width: 90%; /* กำหนดความกว้างให้กับ Modal */
+        max-width: 300px; /* จำกัดขนาดสูงสุดของ Modal */
+        background: white;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .modal video {
+        width: 100%; /* ทำให้วิดีโอเต็มความกว้างของ Modal */
+        height: auto; /* ปรับความสูงอัตโนมัติตามอัตราส่วน */
+        max-width: 100%; /* ไม่ให้เกินความกว้างของ Modal */
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    var modal = document.getElementById("videoModal");
+    var btn = document.getElementById("openim");
+    var span = document.getElementsByClassName("close")[0];
+    var video = document.getElementById("videoPlayer");
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+        video.play(); // เล่นวิดีโออัตโนมัติ
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+        video.pause(); // หยุดเล่นเมื่อปิด
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            video.pause();
+        }
+    }
+</script>
+
+
+
+
+
+<!-- เปิดวิดืโอ-->
+<button id="videoBtn">Video</button>
+<div id="videoContainer" style="display: none; margin-top: 20px;">
+    <video id="videoPlayer" width="640" height="560" controls>
+        <source src="images/valen2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+
+          
+<script>
+    document.getElementById("videoBtn").addEventListener("click", function() {
+        var videoContainer = document.getElementById("videoContainer");
+        var videoPlayer = document.getElementById("videoPlayer");
+
+        videoContainer.style.display = "block"; // แสดงวิดีโอ
+        videoPlayer.play(); // เล่นวิดีโออัตโนมัติ
+    });
+</script>
+
+    </div>
+</div>
+
+
+      
+        </div>
+        <h1 class="valentine">Happy Valentine's Day</h1>
+        <!-- <h1 class="valentine">
+            <i class="fa fa-rose"></i> Happy Valentine's Day
+        </h1> -->
+        
+        <script src="index.js"></script>
+    </body>
+</html>
